@@ -1,11 +1,15 @@
 import os
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
-
+from dotenv import load_dotenv
 from constants import API_URL
+
+load_dotenv()
 
 UID = os.getenv('UID')
 SECRET = os.getenv('SECRET')
+print(UID)
+
 
 def doOauth():
 
