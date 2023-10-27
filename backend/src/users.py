@@ -23,4 +23,16 @@ def fetchUsersFromEvent(oauth, event_id):
       amount = len(data)
     else:
       amount = 0
-  return json.dumps(list(allUsers.values()), indent=4)
+  return list(allUsers.values())
+
+def fetchUserPictures(oauth, allUsers):
+    allUsersPictures = []
+    for user in allUsers:
+        response = oauth.get(f"{API_URL}/v2/users/{user['userId']}")
+        if response.status_code == 200:
+          data = response.json()
+          image = data["image"]["versions"]["small"]
+          entry = {"userName": user['userName'], "userId": user['userId'], "userImg": image}
+          allUsersPictures.append(entry)
+    return allUsersPictures
+
