@@ -32,11 +32,6 @@ def doOauth():
   token_url=f"{API_URL}/oauth/token", client_id=UID, client_secret=SECRET)
   return oauth
 
-    # "id": 19304,
-    # "event_id": 287,
-    # "user_id": 14933,
-    # "user": {
-    #     "id": 14933,
 def fetchMe(oauth):
   FSANDELID = 112576
   PARTNERFAIR = 19304
@@ -51,33 +46,36 @@ def fetchMe(oauth):
   else:
     print(f"statuscode: {response.status_code}")
 
+def removeduplicate(it):
+  seen = []
+  for x in it:
+    if x not in seen:
+      yield x
+      seen.append(x)
+
 def fetchUsersFromEvent(oauth, event_id):
   amount = 1
   page = 0
+  allUsers = {}
   while amount > 0:
     response = oauth.get(f"{API_URL}/v2/events/{event_id}/users?page={page}")
     if response.status_code == 200:
       page += 1
       data = response.json()
       for user in data:
-        print(f"{user['login']},{user['id']}")
-      # print(len(data))
-      # pretty = json.dumps(data, indent = 4)
+        allUsers[user['login']] = ({"userName": user['login'], "userId": user['id']})
       amount = len(data)
-      # print(pretty)
     else:
       amount = 0
+  return json.dumps(list(allUsers.values()), indent=4)
 
 def main():
     '''main function'''
     FSANDELID = 112576
     PARTNERFAIR = 19304
-    # print(os.getenv('UID'))
     oauth = doOauth()
-    # fetchMe(oauth)
-    fetchUsersFromEvent(oauth, PARTNERFAIR)
-    # all_user_data(UID, SECRET)
-
+    allUsers = fetchUsersFromEvent(oauth, PARTNERFAIR)
+    print(allUsers)
 
 if __name__ == "__main__":
     main()
