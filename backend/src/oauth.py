@@ -8,13 +8,12 @@ load_dotenv()
 
 UID = os.getenv('UID')
 SECRET = os.getenv('SECRET')
-print(UID)
 
 
 def doOauth():
 
-  client = BackendApplicationClient(client_id=UID)
-  oauth = OAuth2Session(client=client)
-  oauth.fetch_token(
-  token_url=f"{API_URL}/oauth/token", client_id=UID, client_secret=SECRET)
-  return oauth
+    client = BackendApplicationClient(client_id=UID)
+    oauth = OAuth2Session(client=client)
+    oauth.fetch_token(
+        token_url=f"{API_URL}/oauth/token", client_id=UID, client_secret=SECRET)
+    return oauth

@@ -1,0 +1,878 @@
+[
+    {
+        "id": 15030,
+        "ip_range": "10.12.0.0/16",
+        "begin_at": "2023-10-19T11:00:00.000Z",
+        "end_at": "2023-10-19T14:00:00.000Z",
+        "location": "Cluster 2",
+        "max_people": 70,
+        "nbr_subscribers": 43,
+        "name": "Weekly Exam",
+        "created_at": "2023-10-13T08:16:12.989Z",
+        "updated_at": "2023-10-19T10:41:06.289Z",
+        "campus": {
+            "id": 39,
+            "name": "Heilbronn",
+            "time_zone": "Europe/Berlin",
+            "language": {
+                "id": 2,
+                "name": "English",
+                "identifier": "en",
+                "created_at": "2015-04-14T16:07:38.122Z",
+                "updated_at": "2023-10-16T22:36:50.734Z"
+            },
+            "users_count": 2085,
+            "vogsphere_id": 28,
+            "country": "Germany",
+            "address": "Weipertstr 8 - 10",
+            "zip": "74076",
+            "city": "Heilbronn",
+            "website": "https://42heilbronn.de/",
+            "facebook": "https://www.facebook.com/42heilbronn",
+            "twitter": "https://twitter.com/42Heilbronn",
+            "active": true,
+            "public": true,
+            "email_extension": "42heilbronn.de",
+            "default_hidden_phone": false
+        },
+        "cursus": [
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            }
+        ],
+        "projects": [
+            {
+                "id": 1320,
+                "name": "Exam Rank 02",
+                "slug": "exam-rank-02",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:05.890Z",
+                "updated_at": "2023-10-27T15:47:26.703Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1321,
+                "name": "Exam Rank 03",
+                "slug": "exam-rank-03",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:15.263Z",
+                "updated_at": "2023-10-24T07:29:33.238Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1322,
+                "name": "Exam Rank 04",
+                "slug": "exam-rank-04",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:24.256Z",
+                "updated_at": "2023-10-24T07:29:33.229Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1323,
+                "name": "Exam Rank 05",
+                "slug": "exam-rank-05",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:32.360Z",
+                "updated_at": "2023-10-24T07:29:33.221Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1324,
+                "name": "Exam Rank 06",
+                "slug": "exam-rank-06",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:39.838Z",
+                "updated_at": "2023-10-27T12:10:23.490Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            }
+        ]
+    },
+    {
+        "id": 13453,
+        "ip_range": "10.12.0.0/16",
+        "begin_at": "2023-07-06T11:00:00.000Z",
+        "end_at": "2023-07-06T14:00:00.000Z",
+        "location": "Cluster 2",
+        "max_people": 70,
+        "nbr_subscribers": 43,
+        "name": "Weekly Exam",
+        "created_at": "2023-06-30T09:02:43.617Z",
+        "updated_at": "2023-07-06T10:12:01.857Z",
+        "campus": {
+            "id": 39,
+            "name": "Heilbronn",
+            "time_zone": "Europe/Berlin",
+            "language": {
+                "id": 2,
+                "name": "English",
+                "identifier": "en",
+                "created_at": "2015-04-14T16:07:38.122Z",
+                "updated_at": "2023-10-16T22:36:50.734Z"
+            },
+            "users_count": 2085,
+            "vogsphere_id": 28,
+            "country": "Germany",
+            "address": "Weipertstr 8 - 10",
+            "zip": "74076",
+            "city": "Heilbronn",
+            "website": "https://42heilbronn.de/",
+            "facebook": "https://www.facebook.com/42heilbronn",
+            "twitter": "https://twitter.com/42Heilbronn",
+            "active": true,
+            "public": true,
+            "email_extension": "42heilbronn.de",
+            "default_hidden_phone": false
+        },
+        "cursus": [
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            }
+        ],
+        "projects": [
+            {
+                "id": 1320,
+                "name": "Exam Rank 02",
+                "slug": "exam-rank-02",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:05.890Z",
+                "updated_at": "2023-10-27T15:47:26.703Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1321,
+                "name": "Exam Rank 03",
+                "slug": "exam-rank-03",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:15.263Z",
+                "updated_at": "2023-10-24T07:29:33.238Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1322,
+                "name": "Exam Rank 04",
+                "slug": "exam-rank-04",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:24.256Z",
+                "updated_at": "2023-10-24T07:29:33.229Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1323,
+                "name": "Exam Rank 05",
+                "slug": "exam-rank-05",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:32.360Z",
+                "updated_at": "2023-10-24T07:29:33.221Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1324,
+                "name": "Exam Rank 06",
+                "slug": "exam-rank-06",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:39.838Z",
+                "updated_at": "2023-10-27T12:10:23.490Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            }
+        ]
+    },
+    {
+        "id": 12679,
+        "ip_range": "10.12.0.0/16",
+        "begin_at": "2023-05-25T11:00:00.000Z",
+        "end_at": "2023-05-25T14:00:00.000Z",
+        "location": "Cluster 2",
+        "max_people": 70,
+        "nbr_subscribers": 33,
+        "name": "Weekly Exam",
+        "created_at": "2023-05-15T08:49:34.499Z",
+        "updated_at": "2023-05-25T10:57:40.921Z",
+        "campus": {
+            "id": 39,
+            "name": "Heilbronn",
+            "time_zone": "Europe/Berlin",
+            "language": {
+                "id": 2,
+                "name": "English",
+                "identifier": "en",
+                "created_at": "2015-04-14T16:07:38.122Z",
+                "updated_at": "2023-10-16T22:36:50.734Z"
+            },
+            "users_count": 2085,
+            "vogsphere_id": 28,
+            "country": "Germany",
+            "address": "Weipertstr 8 - 10",
+            "zip": "74076",
+            "city": "Heilbronn",
+            "website": "https://42heilbronn.de/",
+            "facebook": "https://www.facebook.com/42heilbronn",
+            "twitter": "https://twitter.com/42Heilbronn",
+            "active": true,
+            "public": true,
+            "email_extension": "42heilbronn.de",
+            "default_hidden_phone": false
+        },
+        "cursus": [
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            }
+        ],
+        "projects": [
+            {
+                "id": 1320,
+                "name": "Exam Rank 02",
+                "slug": "exam-rank-02",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:05.890Z",
+                "updated_at": "2023-10-27T15:47:26.703Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1321,
+                "name": "Exam Rank 03",
+                "slug": "exam-rank-03",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:15.263Z",
+                "updated_at": "2023-10-24T07:29:33.238Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1322,
+                "name": "Exam Rank 04",
+                "slug": "exam-rank-04",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:24.256Z",
+                "updated_at": "2023-10-24T07:29:33.229Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1323,
+                "name": "Exam Rank 05",
+                "slug": "exam-rank-05",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:32.360Z",
+                "updated_at": "2023-10-24T07:29:33.221Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1324,
+                "name": "Exam Rank 06",
+                "slug": "exam-rank-06",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:39.838Z",
+                "updated_at": "2023-10-27T12:10:23.490Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            }
+        ]
+    },
+    {
+        "id": 12209,
+        "ip_range": "10.12.0.0/16",
+        "begin_at": "2023-04-20T11:00:00.000Z",
+        "end_at": "2023-04-20T14:00:00.000Z",
+        "location": "Cluster 2",
+        "max_people": 70,
+        "nbr_subscribers": 28,
+        "name": "Weekly Exam [Students]",
+        "created_at": "2023-04-14T05:06:45.403Z",
+        "updated_at": "2023-04-20T10:46:44.599Z",
+        "campus": {
+            "id": 39,
+            "name": "Heilbronn",
+            "time_zone": "Europe/Berlin",
+            "language": {
+                "id": 2,
+                "name": "English",
+                "identifier": "en",
+                "created_at": "2015-04-14T16:07:38.122Z",
+                "updated_at": "2023-10-16T22:36:50.734Z"
+            },
+            "users_count": 2085,
+            "vogsphere_id": 28,
+            "country": "Germany",
+            "address": "Weipertstr 8 - 10",
+            "zip": "74076",
+            "city": "Heilbronn",
+            "website": "https://42heilbronn.de/",
+            "facebook": "https://www.facebook.com/42heilbronn",
+            "twitter": "https://twitter.com/42Heilbronn",
+            "active": true,
+            "public": true,
+            "email_extension": "42heilbronn.de",
+            "default_hidden_phone": false
+        },
+        "cursus": [
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            }
+        ],
+        "projects": [
+            {
+                "id": 1320,
+                "name": "Exam Rank 02",
+                "slug": "exam-rank-02",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:05.890Z",
+                "updated_at": "2023-10-27T15:47:26.703Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1321,
+                "name": "Exam Rank 03",
+                "slug": "exam-rank-03",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:15.263Z",
+                "updated_at": "2023-10-24T07:29:33.238Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1322,
+                "name": "Exam Rank 04",
+                "slug": "exam-rank-04",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:24.256Z",
+                "updated_at": "2023-10-24T07:29:33.229Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1323,
+                "name": "Exam Rank 05",
+                "slug": "exam-rank-05",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:32.360Z",
+                "updated_at": "2023-10-24T07:29:33.221Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1324,
+                "name": "Exam Rank 06",
+                "slug": "exam-rank-06",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:39.838Z",
+                "updated_at": "2023-10-27T12:10:23.490Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            }
+        ]
+    },
+    {
+        "id": 10360,
+        "ip_range": "10.12.0.0/16",
+        "begin_at": "2023-01-05T12:00:00.000Z",
+        "end_at": "2023-01-05T15:00:00.000Z",
+        "location": "Cluster 2",
+        "max_people": 50,
+        "nbr_subscribers": 18,
+        "name": "Weekly Exam",
+        "created_at": "2022-12-13T07:08:23.251Z",
+        "updated_at": "2023-01-05T11:48:33.471Z",
+        "campus": {
+            "id": 39,
+            "name": "Heilbronn",
+            "time_zone": "Europe/Berlin",
+            "language": {
+                "id": 2,
+                "name": "English",
+                "identifier": "en",
+                "created_at": "2015-04-14T16:07:38.122Z",
+                "updated_at": "2023-10-16T22:36:50.734Z"
+            },
+            "users_count": 2085,
+            "vogsphere_id": 28,
+            "country": "Germany",
+            "address": "Weipertstr 8 - 10",
+            "zip": "74076",
+            "city": "Heilbronn",
+            "website": "https://42heilbronn.de/",
+            "facebook": "https://www.facebook.com/42heilbronn",
+            "twitter": "https://twitter.com/42Heilbronn",
+            "active": true,
+            "public": true,
+            "email_extension": "42heilbronn.de",
+            "default_hidden_phone": false
+        },
+        "cursus": [
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            }
+        ],
+        "projects": [
+            {
+                "id": 1320,
+                "name": "Exam Rank 02",
+                "slug": "exam-rank-02",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:05.890Z",
+                "updated_at": "2023-10-27T15:47:26.703Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1321,
+                "name": "Exam Rank 03",
+                "slug": "exam-rank-03",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:15.263Z",
+                "updated_at": "2023-10-24T07:29:33.238Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1322,
+                "name": "Exam Rank 04",
+                "slug": "exam-rank-04",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:24.256Z",
+                "updated_at": "2023-10-24T07:29:33.229Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1323,
+                "name": "Exam Rank 05",
+                "slug": "exam-rank-05",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:32.360Z",
+                "updated_at": "2023-10-24T07:29:33.221Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1324,
+                "name": "Exam Rank 06",
+                "slug": "exam-rank-06",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:39.838Z",
+                "updated_at": "2023-10-27T12:10:23.490Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            }
+        ]
+    },
+    {
+        "id": 9807,
+        "ip_range": "10.12.0.0/16",
+        "begin_at": "2022-11-10T12:00:00.000Z",
+        "end_at": "2022-11-10T15:00:00.000Z",
+        "location": "Cluster 2",
+        "max_people": 50,
+        "nbr_subscribers": 18,
+        "name": "Weekly Exam",
+        "created_at": "2022-11-07T09:40:32.183Z",
+        "updated_at": "2022-11-10T11:21:13.559Z",
+        "campus": {
+            "id": 39,
+            "name": "Heilbronn",
+            "time_zone": "Europe/Berlin",
+            "language": {
+                "id": 2,
+                "name": "English",
+                "identifier": "en",
+                "created_at": "2015-04-14T16:07:38.122Z",
+                "updated_at": "2023-10-16T22:36:50.734Z"
+            },
+            "users_count": 2085,
+            "vogsphere_id": 28,
+            "country": "Germany",
+            "address": "Weipertstr 8 - 10",
+            "zip": "74076",
+            "city": "Heilbronn",
+            "website": "https://42heilbronn.de/",
+            "facebook": "https://www.facebook.com/42heilbronn",
+            "twitter": "https://twitter.com/42Heilbronn",
+            "active": true,
+            "public": true,
+            "email_extension": "42heilbronn.de",
+            "default_hidden_phone": false
+        },
+        "cursus": [
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            },
+            {
+                "id": 21,
+                "created_at": "2019-07-29T08:45:17.896Z",
+                "name": "42cursus",
+                "slug": "42cursus",
+                "kind": "main"
+            }
+        ],
+        "projects": [
+            {
+                "id": 1320,
+                "name": "Exam Rank 02",
+                "slug": "exam-rank-02",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:05.890Z",
+                "updated_at": "2023-10-27T15:47:26.703Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1321,
+                "name": "Exam Rank 03",
+                "slug": "exam-rank-03",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:15.263Z",
+                "updated_at": "2023-10-24T07:29:33.238Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1322,
+                "name": "Exam Rank 04",
+                "slug": "exam-rank-04",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:24.256Z",
+                "updated_at": "2023-10-24T07:29:33.229Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1323,
+                "name": "Exam Rank 05",
+                "slug": "exam-rank-05",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:32.360Z",
+                "updated_at": "2023-10-24T07:29:33.221Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            },
+            {
+                "id": 1324,
+                "name": "Exam Rank 06",
+                "slug": "exam-rank-06",
+                "difficulty": 0,
+                "parent": null,
+                "children": [],
+                "attachments": [],
+                "created_at": "2019-07-29T09:05:39.838Z",
+                "updated_at": "2023-10-27T12:10:23.490Z",
+                "exam": true,
+                "git_id": null,
+                "repository": null
+            }
+        ]
+    }
+]
