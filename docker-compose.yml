@@ -1,13 +1,13 @@
 services:
-  # frontend:
-  #   container_name: react
-  #   build: ./frontend/
-  #   networks:
-  #     - client-side
-  #   ports:
-  #     - 3000:3000
-  #   volumes:
-  #     - .:/code
+  frontend:
+    container_name: react-monitor
+    build: ./frontend/
+    networks:
+      - client-side
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/code
   backend:
     container_name: flask
     build: ./backend/
