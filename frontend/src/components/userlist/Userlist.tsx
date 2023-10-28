@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Userentry from "../userentry";
 import styled from "styled-components";
+import { BACKEND } from "../../types/constants";
 
 interface IUser {
   userName: string;
@@ -23,7 +24,7 @@ const Userlist: React.FC = () => {
   const [userData, setUserData] = useState<IUser[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/pictures")
+    fetch(`${BACKEND}/pictures`)
       .then((res) => res.json())
       .then((data) => setUserData(data))
       .catch(() => console.log("error"));
