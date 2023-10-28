@@ -2,7 +2,7 @@
 
 
 from oauth import doOauth
-from users import fetchUsersFromEvent, fetchUserPictures
+from users import fetchUsersFromEvent, fetchUserPictures, fetchEventInformation
 
 
 # def fetchMe(oauth):
@@ -26,10 +26,11 @@ def main():
     PARTNERFAIR = 19304
     oauth = doOauth()
     # allUsers = fetchUsersFromEvent(oauth, PARTNERFAIR)
-    allUsers = fetchUsersFromEvent(oauth, PARTNERFAIR)
-    print(allUsers)
-    allUsersPictures = fetchUserPictures(oauth, allUsers)
-    print(allUsersPictures)
+    # allUsers = fetchUsersFromEvent(oauth, PARTNERFAIR)
+    # print(allUsers)
+    # allUsersPictures = fetchUserPictures(oauth, allUsers)
+    eventInformation = fetchEventInformation(oauth, PARTNERFAIR)
+    print(eventInformation)
 
 
 if __name__ == "__main__":

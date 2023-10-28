@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import json
 from flask_cors import CORS
 import sys
-from users import fetchUsersFromEvent, fetchUserPictures
+from users import fetchUsersFromEvent, fetchUserPictures, fetchEventInformation
 from oauth import doOauth
 import threading
 
@@ -42,6 +42,13 @@ def raw() -> json:
 @app.route("/geteventid")
 def geteventid() -> json:
     return str(EVENT)
+
+
+@app.route("/geteventinformation")
+def geteventinformation() -> json:
+    eventInformation = fetchEventInformation(oauth, EVENT)
+    print(eventInformation, file=sys.stderr)
+    return eventInformation
 
 
 @app.route("/pictures")

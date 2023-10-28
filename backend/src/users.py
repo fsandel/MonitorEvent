@@ -47,3 +47,13 @@ def fetchUserPictures(oauth, allUsers):
         else:
             print("failed")
     return allUsersPictures
+
+
+def fetchEventInformation(oauth, eventId):
+    time.sleep(1)
+    response = oauth.get(f"{API_URL}/v2/events/{eventId}")
+    if response.status_code == 200:
+        data = response.json()
+        return {"eventName": data['name'], "eventDescription": data['description'], "eventSubscriber": data['nbr_subscribers']}
+    else:
+        print("failed")
