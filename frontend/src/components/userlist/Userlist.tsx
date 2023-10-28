@@ -7,6 +7,7 @@ interface IUser {
   userName: string;
   userId: string;
   userImg?: string;
+  registered: boolean;
 }
 
 const UserlistWrapper = styled.div`

@@ -6,6 +6,7 @@ interface IUser {
   userName: string;
   userId: string;
   userImg?: string;
+  registered: boolean;
 }
 
 interface IUserentryProps {
@@ -35,7 +36,10 @@ const Userentry: React.FC<IUserentryProps> = (props: IUserentryProps) => {
       <UserContainer>
         <Userimage user={props.user} />
         <UserName>
-          <p>{props.user.userName}</p>
+          <div>
+            <p>{props.user.userName}</p>
+            <p>{props.user.registered}</p>
+          </div>
         </UserName>
       </UserContainer>
     </UserentryWrapper>

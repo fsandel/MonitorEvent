@@ -3,6 +3,7 @@ import json
 from flask_cors import CORS
 import sys
 from users import fetchUsersFromEvent, fetchUserPictures, fetchEventInformation
+from fetch import fetchAllUsers, fetchUsersFromExam, grabPiscinerFromUser, getPiscinerInExam
 from oauth import doOauth
 import threading
 
@@ -15,9 +16,14 @@ PARTNERFAIR = 19304
 EVENT = PARTNERFAIR
 oauth = doOauth()
 
+EXAM = "C Piscine Exam 01"
+MONTH = "october"
+YEAR = "2023"
 
 allUsers = []
-allUsersPictures = []
+allPisciners = []
+allPiscinersInExam = [{'userName': 'iwysocki', 'userId': 168897, 'userImg': 'https://cdn.intra.42.fr/users/23553708e7288a4edfb65aebf3d30aef/iwysocki.jpg', 'pool_month': 'october', 'pool_year': '2023'},
+                      {'userName': 'ogjaka', 'userId': 168859, 'userImg': 'https://cdn.intra.42.fr/users/e89d4476fd98b0f0c172a9c9aa318d37/ogjaka.jpg', 'pool_month': 'october', 'pool_year': '2023'}]
 
 
 @app.route("/refresh")
@@ -53,7 +59,7 @@ def geteventinformation() -> json:
 
 @app.route("/pictures")
 def pictures() -> json:
-    localPictures = allUsersPictures
+    localPictures = allPiscinersInExam
     return json.dumps(localPictures, indent=4)
 
 
@@ -72,16 +78,22 @@ def event():
 
 def background():
     global allUsers
-    global allUsersPictures
-    allUsers = fetchUsersFromEvent(oauth, EVENT)
-    allUsersPictures = fetchUserPictures(oauth, allUsers)
+    global allPisciners
+    global allPiscinersInExam
+    allUsers = fetchAllUsers(oauth)
+    print("allUsers", file=sys.stdout)
+    allPisciners = grabPiscinerFromUser(allUsers, MONTH, YEAR)
+    print("allPisciners", file=sys.stdout)
+    allPiscinersInExam = getPiscinerInExam(
+        oauth=oauth, examName=EXAM, allPisciner=allPisciners)
 
 
 @app.route("/setup", methods=["POST"])
 def setup():
     if request.method == "POST":
         global allUsers
-        global allUsersPictures
+        global allPisciners
+        global allPiscinersInExam
         thread = threading.Thread(target=background)
         thread.daemon = True
         thread.start()

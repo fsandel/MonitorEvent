@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 interface IUser {
   userName: string;
@@ -10,11 +11,25 @@ interface IUserentryProps {
   user: IUser;
 }
 
+const UserImageWrapper = styled.div`
+  width: 300px; /* Default width for desktop */
+  height: auto;
+
+  @media (max-width: 768px) {
+    width: 150px;
+  }
+`;
+
+const ScaledImage = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
 const Userimage: React.FC<IUserentryProps> = (props: IUserentryProps) => {
   return (
-    <>
-      <img src={props.user.userImg}></img>
-    </>
+    <UserImageWrapper>
+      <ScaledImage src={props.user.userImg} alt={props.user.userName} />
+    </UserImageWrapper>
   );
 };
 
