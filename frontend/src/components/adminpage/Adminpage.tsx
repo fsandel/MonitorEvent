@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { BACKEND } from "../../types/constants";
 
 const Adminpage: React.FC = () => {
   const [eventId, setEventId] = useState("");
+  const [currentEventId, setCurrentEventId] = useState("");
 
   const handlePostEvent = () => {
-    fetch("http://localhost:4000/event", {
+    fetch(`${BACKEND}/event`, {
       method: "POST",
-      mode: "no-cors", // Set the mode to "no-cors"
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -21,9 +23,9 @@ const Adminpage: React.FC = () => {
   };
 
   const handlePostSetup = () => {
-    fetch("http://localhost:4000/setup", {
+    fetch(`${BACKEND}/setup`, {
       method: "POST",
-      mode: "no-cors", // Set the mode to "no-cors"
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -37,10 +39,25 @@ const Adminpage: React.FC = () => {
       });
   };
 
+  useEffect(() => {
+    fetch(`${BACKEND}/geteventid`, {
+      // mode: "no-cors",
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
+    })
+      .then((response) => response.json())
+      .then((data) => setCurrentEventId(data))
+      .catch((error) => {
+        console.error("get event failed", error);
+      });
+  }, []);
+
   return (
     <>
       <div>
         <h1>Admin Page</h1>
+        <h2>Current EventId: {currentEventId}</h2>
         <input
           type="text"
           placeholder="Enter Event ID"

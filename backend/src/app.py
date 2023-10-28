@@ -39,6 +39,11 @@ def raw() -> json:
     return json.dumps(allUsers, indent=4)
 
 
+@app.route("/geteventid")
+def geteventid() -> json:
+    return str(EVENT)
+
+
 @app.route("/pictures")
 def pictures() -> json:
     localPictures = allUsersPictures
