@@ -5,9 +5,6 @@ from oauth import doOauth
 from users import fetchUsersFromEvent, fetchUserPictures
 
 
-
-
-
 # def fetchMe(oauth):
 #   FSANDELID = 112576
 #   PARTNERFAIR = 19304
@@ -23,16 +20,17 @@ from users import fetchUsersFromEvent, fetchUserPictures
 #     print(f"statuscode: {response.status_code}")
 
 
-
 def main():
     '''main function'''
     FSANDELID = 112576
     PARTNERFAIR = 19304
     oauth = doOauth()
     # allUsers = fetchUsersFromEvent(oauth, PARTNERFAIR)
-    allUsers = [{'userName': 'fsandel', 'userId': 112576}]
+    allUsers = fetchUsersFromEvent(oauth, PARTNERFAIR)
+    print(allUsers)
     allUsersPictures = fetchUserPictures(oauth, allUsers)
     print(allUsersPictures)
+
 
 if __name__ == "__main__":
     main()
