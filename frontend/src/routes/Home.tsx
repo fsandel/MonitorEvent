@@ -1,4 +1,5 @@
 import React from "react";
+import Userlist from "../components/Userlist";
 
 
 const Home: React.FC = () => {
@@ -6,6 +7,7 @@ const Home: React.FC = () => {
     <>
     <h1>title</h1>
      <p>"home"</p>
+     <Userlist/>
     </>
   );
 };
