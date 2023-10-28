@@ -22,8 +22,8 @@ YEAR = "2023"
 
 allUsers = []
 allPisciners = []
-allPiscinersInExam = [{'userName': 'iwysocki', 'userId': 168897, 'userImg': 'https://cdn.intra.42.fr/users/23553708e7288a4edfb65aebf3d30aef/iwysocki.jpg', 'pool_month': 'october', 'pool_year': '2023'},
-                      {'userName': 'ogjaka', 'userId': 168859, 'userImg': 'https://cdn.intra.42.fr/users/e89d4476fd98b0f0c172a9c9aa318d37/ogjaka.jpg', 'pool_month': 'october', 'pool_year': '2023'}]
+allPiscinersInExam = [{'userName': 'iwysocki', 'userId': 168897, 'userImg': 'https://cdn.intra.42.fr/users/23553708e7288a4edfb65aebf3d30aef/iwysocki.jpg', 'pool_month': 'october', 'pool_year': '2023', 'registered': 'True'},
+                      {'userName': 'ogjaka', 'userId': 168859, 'userImg': 'https://cdn.intra.42.fr/users/e89d4476fd98b0f0c172a9c9aa318d37/ogjaka.jpg', 'pool_month': 'october', 'pool_year': '2023', 'registered': 'False'}]
 
 
 @app.route("/refresh")
@@ -53,7 +53,6 @@ def geteventid() -> json:
 @app.route("/geteventinformation")
 def geteventinformation() -> json:
     eventInformation = fetchEventInformation(oauth, EVENT)
-    print(eventInformation, file=sys.stderr)
     return eventInformation
 
 
@@ -81,9 +80,7 @@ def background():
     global allPisciners
     global allPiscinersInExam
     allUsers = fetchAllUsers(oauth)
-    print("allUsers", file=sys.stdout)
     allPisciners = grabPiscinerFromUser(allUsers, MONTH, YEAR)
-    print("allPisciners", file=sys.stdout)
     allPiscinersInExam = getPiscinerInExam(
         oauth=oauth, examName=EXAM, allPisciner=allPisciners)
 
