@@ -12,8 +12,6 @@ app = Flask(__name__)
 CORS(app, resources={
      r"*": {"origins": "*"}}, methods=["GET", "POST"])
 
-PARTNERFAIR = 19304
-EVENT = PARTNERFAIR
 oauth = doOauth()
 
 EXAM = "C Piscine Exam 01"
@@ -22,27 +20,27 @@ YEAR = "2023"
 
 allUsers = []
 allPisciners = []
-allPiscinersInExam = [{'userName': 'iwysocki', 'userId': 168897, 'userImg': 'https://cdn.intra.42.fr/users/23553708e7288a4edfb65aebf3d30aef/iwysocki.jpg', 'pool_month': 'october', 'pool_year': '2023', 'registered': 'True'},
-                      {'userName': 'ogjaka', 'userId': 168859, 'userImg': 'https://cdn.intra.42.fr/users/e89d4476fd98b0f0c172a9c9aa318d37/ogjaka.jpg', 'pool_month': 'october', 'pool_year': '2023', 'registered': 'False'}]
+allPiscinersInExam = [{'userName': 'name1', 'userId': 168897, 'userImg': 'https://upload.wikimedia.org/wikipedia/commons/1/15/Cat_August_2010-4.jpg', 'pool_month': 'october', 'pool_year': '2023', 'registered': 'True'},
+                      {'userName': 'name2', 'userId': 168859, 'userImg': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/RedCat_8727.jpg/1200px-RedCat_8727.jpg', 'pool_month': 'october', 'pool_year': '2023', 'registered': 'False'}]
 
 
-@app.route("/refresh")
-def refresh() -> str:
-    global allUsers
-    allUsers = fetchUsersFromEvent(oauth, EVENT)
-    return "refreshed"
+@app.route("/getexam")
+def getexam() -> str:
+    return jsonify({"examName": EXAM})
 
 
-@app.route("/refreshpictures")
-def refreshPictures() -> str:
-    global allUsersPictures
-    allUsersPictures = fetchUserPictures(oauth, allUsers)
-    return "refreshed"
-
-
-@app.route("/raw")
-def raw() -> json:
-    return json.dumps(allUsers, indent=4)
+@app.route("/setexam", methods=["POST"])
+def setexam():
+    print("request json", request.get_json())
+    global EXAM
+    if request.method == "POST":
+        try:
+            data = request.get_json()
+            print("data inside: ", data)
+            EXAM = data
+        except:
+            print("something failed")
+        return jsonify({"message": "exam successfully changed"})
 
 
 @app.route("/geteventid")
@@ -56,10 +54,19 @@ def geteventinformation() -> json:
     return eventInformation
 
 
-@app.route("/pictures")
+@app.route("/getuserdata")
 def pictures() -> json:
-    localPictures = allPiscinersInExam
-    return json.dumps(localPictures, indent=4)
+    return json.dumps(allPiscinersInExam, indent=4)
+
+
+@app.route("/getmonth")
+def getmonth():
+    return jsonify(MONTH)
+
+
+@app.route("/getyear")
+def getyear():
+    return jsonify(YEAR)
 
 
 @app.route("/event", methods=["POST"])
@@ -85,8 +92,8 @@ def background():
         oauth=oauth, examName=EXAM, allPisciner=allPisciners)
 
 
-@app.route("/setup", methods=["POST"])
-def setup():
+@app.route("/refresh", methods=["POST"])
+def refresh():
     if request.method == "POST":
         global allUsers
         global allPisciners

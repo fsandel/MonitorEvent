@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { BACKEND } from "../../types/constants";
-import EventComponent from "../event/Event";
+
+interface IExam {
+  examName: string;
+}
 
 const Adminpage: React.FC = () => {
-  const [eventId, setEventId] = useState("");
-  const [currentEventId, setCurrentEventId] = useState("");
+  const [localExamName, setLocalExamName] = useState("");
+  const [currentExam, setCurrentExam] = useState("");
   const [eventComponentKey, setEventComponentKey] = useState(0);
+  const [year, setYear] = useState("");
+  const [month, setMonth] = useState("");
 
-  const changeEvent = () => {
-    fetch(`${BACKEND}/event`, {
+  const changeExam = () => {
+    fetch(`${BACKEND}/setexam`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ eventId }),
+      body: JSON.stringify(localExamName),
     })
       .then((response) => {
         console.log("POST request successful");
-        // Update the key to trigger re-render of EventComponent
+        setCurrentExam(localExamName);
         setEventComponentKey((prevKey) => prevKey + 1);
       })
       .catch((error) => {
@@ -25,13 +30,13 @@ const Adminpage: React.FC = () => {
       });
   };
 
-  const handlePostSetup = () => {
-    fetch(`${BACKEND}/setup`, {
+  const refreshData = () => {
+    fetch(`${BACKEND}/refresh`, {
       method: "POST",
       headers: {
         "Content-Type": "application json",
       },
-      body: JSON.stringify({ eventId }),
+      body: JSON.stringify({ eventId: localExamName }),
     })
       .then((response) => {
         console.log("POST request successful");
@@ -41,37 +46,52 @@ const Adminpage: React.FC = () => {
       });
   };
 
-  const fetchEventId = () => {
-    fetch(`${BACKEND}/geteventid`)
+  const fetchExam = () => {
+    fetch(`${BACKEND}/getexam`)
       .then((response) => response.json())
-      .then((data) => setCurrentEventId(data))
+      .then((data: IExam) => setCurrentExam(data.examName))
       .catch((error) => {
         console.error("get event failed", error);
       });
   };
 
   useEffect(() => {
-    fetchEventId();
+    fetchExam();
+
+    fetch(`${BACKEND}/getyear`)
+      .then((response) => response.json())
+      .then((data) => setYear(data))
+      .catch((error) => {
+        console.error("get event failed", error);
+      });
+
+    fetch(`${BACKEND}/getmonth`)
+      .then((response) => response.json())
+      .then((data) => setMonth(data))
+      .catch((error) => {
+        console.error("get event failed", error);
+      });
   }, []);
 
   return (
     <>
       <div>
         <h1>Admin Page</h1>
-        <h2>Current EventId: {currentEventId}</h2>
+        <h2>Current Exam: {currentExam}</h2>
         <input
           type="text"
           placeholder="Enter Event ID"
-          value={eventId}
-          onChange={(e) => setEventId(e.target.value)}
+          value={localExamName}
+          onChange={(e) => setLocalExamName(e.target.value)}
         />
-        <button onClick={changeEvent}>Change Event</button>
+        <button onClick={changeExam}>Change Exam</button>
         <p></p>
         <p></p>
-        <button onClick={handlePostSetup}>Refresh Data</button>
+        <button onClick={refreshData}>Refresh Data</button>
         <p></p>
         <p></p>
-        <EventComponent key={eventComponentKey} />
+        <p>Year: {year}</p>
+        <p>Month: {month}</p>
       </div>
     </>
   );

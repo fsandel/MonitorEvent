@@ -10,6 +10,10 @@ interface IUser {
   registered: boolean;
 }
 
+interface IExam {
+  examName: string;
+}
+
 const UserlistWrapper = styled.div`
   ul {
     list-style: none;
@@ -23,11 +27,17 @@ const UserlistWrapper = styled.div`
 
 const Userlist: React.FC = () => {
   const [userData, setUserData] = useState<IUser[]>([]);
+  const [exam, setExam] = useState<IExam>();
 
   useEffect(() => {
-    fetch(`${BACKEND}/pictures`)
+    fetch(`${BACKEND}/getuserdata`)
       .then((res) => res.json())
       .then((data) => setUserData(data))
+      .catch(() => console.log("error"));
+
+    fetch(`${BACKEND}/getexam`)
+      .then((res) => res.json())
+      .then((data) => setExam(data))
       .catch(() => console.log("error"));
   }, []);
 
@@ -35,7 +45,7 @@ const Userlist: React.FC = () => {
 
   return (
     <UserlistWrapper>
-      <h1>User List</h1>
+      <h1>{exam?.examName}</h1>
       <ul>
         {userData.map((element: IUser, index) => (
           <li key={index}>
