@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Userentry from "../userentry";
 import styled from "styled-components";
 import { BACKEND } from "../../types/constants";
+import { useNavigate } from "react-router-dom";
 
 interface IUser {
   userName: string;
@@ -28,6 +29,7 @@ const UserlistWrapper = styled.div`
 const Userlist: React.FC = () => {
   const [userData, setUserData] = useState<IUser[]>([]);
   const [exam, setExam] = useState<IExam>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${BACKEND}/getuserdata`)
@@ -48,9 +50,15 @@ const Userlist: React.FC = () => {
       <h1>{exam?.examName}</h1>
       <ul>
         {userData.map((element: IUser, index) => (
-          <li key={index}>
-            <Userentry user={element} />
-          </li>
+          <div
+            onClick={() => {
+              navigate(`/user/${element.userId}`);
+            }}
+          >
+            <li key={index}>
+              <Userentry user={element} />
+            </li>
+          </div>
         ))}
       </ul>
     </UserlistWrapper>
