@@ -82,6 +82,49 @@ def fetchExamsFromUser(oauth, userId):
     return list(allUsers.values())
 
 
+def fetchExamNamesFromUser(oauth, userId):
+    amount = 1
+    page = 0
+    allExams = {}
+    while amount > 0:
+        time.sleep(1)
+        response = oauth.get(
+            f"{API_URL}/v2/users/{userId}/exams?page={page}")
+        if response.status_code == 200:
+            page += 1
+            data = response.json()
+            for exam in data:
+                allExams[exam['id']] = exam
+            amount = len(data)
+        else:
+            amount = 0
+    examList = list(allExams.values())
+    examNameList = []
+    for exam in examList:
+        examNameList.append(exam["name"])
+    return examNameList
+
+
+def fetchProjectsFromUser(oauth, userId):
+    amount = 1
+    page = 0
+    allUsers = {}
+    while amount > 0:
+        time.sleep(1)
+        response = oauth.get(
+            f"{API_URL}/v2/users/{userId}/projects_users?page={page}")
+        if response.status_code == 200:
+            page += 1
+            data = response.json()
+            for exam in data:
+                allUsers[exam['project']['name']] = exam['project']['name']
+            amount = len(data)
+        else:
+            print("failed")
+            amount = 0
+    return list(allUsers.values())
+
+
 def fetchAllCampus(oauth):
     response = oauth.get(
         f"{API_URL}/v2/campus")

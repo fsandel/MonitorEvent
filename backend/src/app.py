@@ -3,7 +3,7 @@ import json
 from flask_cors import CORS
 import sys
 from users import fetchUsersFromEvent, fetchUserPictures, fetchEventInformation
-from fetch import fetchAllUsers, fetchUsersFromExam, grabPiscinerFromUser, getPiscinerInExam
+from fetch import fetchAllUsers, fetchUsersFromExam, grabPiscinerFromUser, getPiscinerInExam, fetchExamNamesFromUser, fetchProjectsFromUser
 from oauth import doOauth
 import threading
 
@@ -110,9 +110,21 @@ def refresh():
 # }
 
 
+def grabUserName(userId):
+    global allPiscinersInExam
+    for user in allPiscinersInExam:
+        if user["userId"] == int(userId):
+            return user["userName"]
+    return "user not found"
+
+
 @app.route("/user/<userId>")
 def user(userId):
-    return {"userName": "name", "exams": ["first exam"], "projects": ["first project"]}
+    userName = grabUserName(userId)
+    exams = fetchExamNamesFromUser(oauth, userId)
+    projects = fetchProjectsFromUser(oauth, userId)
+    print(projects)
+    return {"userName": userName, "exams": exams, "projects": projects}
 
 
 def main():

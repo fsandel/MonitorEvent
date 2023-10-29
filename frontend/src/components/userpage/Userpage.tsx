@@ -44,7 +44,7 @@ const Userpage: React.FC = () => {
           <p></p>
           <h2>Projects</h2>
           <ul>
-            {profileData.exams.map((element: string, index) => (
+            {profileData.projects.map((element: string, index) => (
               <li key={index}>
                 <p>{element}</p>
               </li>
