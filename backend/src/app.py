@@ -103,6 +103,17 @@ def refresh():
         thread.start()
         return "worked"
 
+# interface IProfile {
+#   userName: string;
+#   exams: string[];
+#   projects: string[];
+# }
+
+
+@app.route("/user/<userId>")
+def user(userId):
+    return {"userName": "name", "exams": ["first exam"], "projects": ["first project"]}
+
 
 def main():
     '''main function'''

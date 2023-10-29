@@ -1,10 +1,10 @@
 '''small programm to check out intra42 api'''
 
 
-import json
+# import json
 from oauth import doOauth
-from users import fetchUsersFromEvent, fetchUserPictures, fetchEventInformation
-from fetch import fetchAllUsers, grabPiscinerFromUser, fetchUsersFromExam, getPiscinerInExam
+# from users import fetchUsersFromEvent, fetchUserPictures, fetchEventInformation
+# from fetch import fetchAllUsers, grabPiscinerFromUser, fetchUsersFromExam, getPiscinerInExam, fetchExamsFromUser
 
 # def fetchMe(oauth):
 #   FSANDELID = 112576
@@ -20,10 +20,10 @@ from fetch import fetchAllUsers, grabPiscinerFromUser, fetchUsersFromExam, getPi
 #   else:
 #     print(f"statuscode: {response.status_code}")
 
-import time
-from constants import API_URL, HEILBRONN_ID
+# import time
+# from constants import API_URL, HEILBRONN_ID
 
-from app import MONTH, YEAR, EXAM
+# from app import MONTH, YEAR, EXAM
 
 # "name": "C Piscine Exam 00",
 
@@ -33,13 +33,15 @@ def main():
     FSANDELID = 112576
     PARTNERFAIR = 19304
     oauth = doOauth()
-    allUsers = fetchAllUsers(oauth)
-    # print(allUsers)
-    allPisciners = grabPiscinerFromUser(allUsers, MONTH, YEAR)
-    # print(allPisciners)
-    allPiscinersInExam = getPiscinerInExam(
-        oauth=oauth, allPisciner=allPisciners, examName=EXAM)
-    print(allPiscinersInExam)
+    # allUsers = fetchAllUsers(oauth)
+    # # print(allUsers)
+    # allPisciners = grabPiscinerFromUser(allUsers, MONTH, YEAR)
+    # # print(allPisciners)
+    # allPiscinersInExam = getPiscinerInExam(
+    #     oauth=oauth, allPisciner=allPisciners, examName=EXAM)
+    # print(allPiscinersInExam)
+    # var = fetchExamsFromUser(oauth, FSANDELID)
+    # print(json.dumps(var, indent=4))
     # allUsers = fetchUsersFromEvent(oauth, PARTNERFAIR)
     # allUsers = fetchUsersFromEvent(oauth, PARTNERFAIR)
     # print(allUsers)
