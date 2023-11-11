@@ -2,11 +2,11 @@ from flask import Flask, request, jsonify
 import json
 from flask_cors import CORS
 import sys
-from users import fetchUsersFromEvent, fetchUserPictures, fetchEventInformation
-from fetch import fetchAllUsers, fetchUsersFromExam, grabPiscinerFromUser, getPiscinerInExam, fetchExamNamesFromUser, fetchProjectsFromUser
+from users import fetchEventInformation
+from fetch import fetchAllUsers, grabPiscinerFromUser, getPiscinerInExam, fetchExamNamesFromUser, fetchProjectsFromUser
 from oauth import doOauth
 import threading
-
+from constants import MONTH, YEAR, EXAM
 
 app = Flask(__name__)
 CORS(app, resources={
@@ -14,9 +14,6 @@ CORS(app, resources={
 
 oauth = doOauth()
 
-EXAM = "C Piscine Exam 01"
-MONTH = "october"
-YEAR = "2023"
 
 allUsers = []
 allPisciners = []
@@ -102,12 +99,6 @@ def refresh():
         thread.daemon = True
         thread.start()
         return "worked"
-
-# interface IProfile {
-#   userName: string;
-#   exams: string[];
-#   projects: string[];
-# }
 
 
 def grabUserName(userId):
