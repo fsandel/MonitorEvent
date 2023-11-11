@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BACKEND } from "../../types/constants";
 import { useParams } from "react-router-dom";
+import Userimage from "../userimage";
 
 interface IProfile {
   userName: string;
+  userImg: string;
   exams: string[];
   projects: string[];
 }
@@ -14,6 +16,7 @@ const Userpage: React.FC = () => {
     userName: "",
     exams: [],
     projects: [],
+    userImg: "",
   });
 
   useEffect(() => {

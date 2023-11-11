@@ -10,8 +10,6 @@ This is a project to monitor users subscribed to an event at ecole 42
 ```
 UID=<YOUR-UID>
 SECRET=<YOU-SECRET>
-FLASK_APP=/code/backend/src/app.py
-FLASK_DEBUG=1 #if you want debug mode to be active
 ```
 
 - type make in the root of the repository
