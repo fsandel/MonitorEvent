@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify
 import json
 from flask_cors import CORS
-import sys
-from users import fetchEventInformation
 from fetch import fetchAllUsers, grabPiscinerFromUser, getPiscinerInExam, fetchExamNamesFromUser, fetchProjectsFromUser
 from oauth import doOauth
 import threading
@@ -40,17 +38,6 @@ def setexam():
         return jsonify({"message": "exam successfully changed"})
 
 
-@app.route("/geteventid")
-def geteventid() -> json:
-    return str(EVENT)
-
-
-@app.route("/geteventinformation")
-def geteventinformation() -> json:
-    eventInformation = fetchEventInformation(oauth, EVENT)
-    return eventInformation
-
-
 @app.route("/getuserdata")
 def pictures() -> json:
     return json.dumps(allPiscinersInExam, indent=4)
@@ -64,19 +51,6 @@ def getmonth():
 @app.route("/getyear")
 def getyear():
     return jsonify(YEAR)
-
-
-@app.route("/event", methods=["POST"])
-def event():
-    global EVENT
-    if request.method == "POST":
-        try:
-            data = request.get_json()
-            EVENT = data["eventId"]
-            print(EVENT, file=sys.stderr)
-        except:
-            print("something failed")
-        return jsonify({"message": "POST request successful"})
 
 
 def background():

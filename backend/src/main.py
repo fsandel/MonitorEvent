@@ -30,8 +30,7 @@ from oauth import doOauth
 
 def main():
     '''main function'''
-    FSANDELID = 112576
-    PARTNERFAIR = 19304
+
     oauth = doOauth()
     # allUsers = fetchAllUsers(oauth)
     # # print(allUsers)

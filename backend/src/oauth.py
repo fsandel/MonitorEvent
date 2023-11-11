@@ -11,8 +11,6 @@ SECRET = os.getenv('SECRET')
 
 
 def doOauth():
-    print(UID)
-    print(SECRET)
     client = BackendApplicationClient(client_id=UID)
     oauth = OAuth2Session(client=client)
     oauth.fetch_token(

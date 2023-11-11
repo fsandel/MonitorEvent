@@ -68,3 +68,33 @@ def fetchAllCampus(oauth):
     if response.status_code == 200:
         data = response.json()
         return data
+
+
+def fetchEventInformation(oauth, eventId):
+    time.sleep(1)
+    response = oauth.get(f"{API_URL}/v2/events/{eventId}")
+    if response.status_code == 200:
+        data = response.json()
+        return {"eventName": data['name'], "eventDescription": data['description'], "eventSubscriber": data['nbr_subscribers']}
+    else:
+        print("failed")
+
+
+def fetchUsersFromEvent(oauth, event_id):
+    amount = 1
+    page = 0
+    allUsers = {}
+    while amount > 0:
+        time.sleep(1)
+        response = oauth.get(
+            f"{API_URL}/v2/events/{event_id}/users?page={page}")
+        if response.status_code == 200:
+            page += 1
+            data = response.json()
+            for user in data:
+                allUsers[user['login']] = (
+                    {"userName": user['login'], "userId": user['id']})
+            amount = len(data)
+        else:
+            amount = 0
+    return list(allUsers.values())

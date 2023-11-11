@@ -109,3 +109,18 @@ def getPiscinerInExam(oauth, allPisciner, examName):
         else:
             pisciner['registered'] = "False"
     return allPisciner
+
+
+def fetchUserPictures(oauth, allUsers):
+    allUsersPictures = []
+    print(len(allUsers))
+    for user in allUsers:
+        time.sleep(1)
+        response = oauth.get(f"{API_URL}/v2/users/{user['userId']}")
+        if response.status_code == 200:
+            data = response.json()
+            image = data["image"]["versions"]["small"]
+            entry = {"userName": user['userName'],
+                     "userId": user['userId'], "userImg": image}
+            allUsersPictures.append(entry)
+    return allUsersPictures
