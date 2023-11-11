@@ -64,10 +64,10 @@ def fetchProjectsFromUser(oauth, userId):
     return list(allUsers.values())
 
 
-def fetchAllUsers(oauth):
+def fetchAllUsers(oauth, returnUsers):
+    returnUsers.clear()
     amount = 1
     page = 0
-    allUsers = {}
     while amount > 0:
         time.sleep(1)
         response = oauth.get(
@@ -76,12 +76,11 @@ def fetchAllUsers(oauth):
             page += 1
             data = response.json()
             for user in data:
-                allUsers[user['login']] = (
-                    {"userName": user['login'], "userId": user['id'], "userImg": user['image']['link'], "pool_month": user['pool_month'], "pool_year": user['pool_year']})
+                returnUsers.append({"userName": user['login'], "userId": user['id'], "userImg": user['image']
+                                   ['link'], "pool_month": user['pool_month'], "pool_year": user['pool_year']})
             amount = len(data)
         else:
             amount = 0
-    return list(allUsers.values())
 
 
 def grabPiscinerFromUser(allUsers, month, year):
@@ -101,14 +100,14 @@ def isUserInExam(oauth, userId, examName):
         return False
 
 
-def getPiscinerInExam(oauth, allPisciner, examName):
-    piscinerInExam = []
+def getPiscinerInExam(oauth, allPisciner, examName, piscinerInExam):
+    piscinerInExam.clear()
     for pisciner in allPisciner:
         if isUserInExam(oauth, pisciner['userId'], examName):
             pisciner['registered'] = "True"
         else:
             pisciner['registered'] = "False"
-    return allPisciner
+        piscinerInExam.append(pisciner)
 
 
 def fetchUserPictures(oauth, allUsers):

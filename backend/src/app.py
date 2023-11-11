@@ -12,6 +12,7 @@ CORS(app, resources={
 
 oauth = doOauth()
 
+LOADING = False
 
 allUsers = []
 allPisciners = []
@@ -53,14 +54,30 @@ def getyear():
     return jsonify(YEAR)
 
 
+@app.route("/getuseramount")
+def getuseramount():
+    return jsonify(len(allUsers))
+
+@app.route("/getallpisciner")
+def getallpisciner():
+    return jsonify(len(allPisciners))
+
+@app.route("/getallpiscinerinexam")
+def getallpiscinerinexam():
+    return jsonify(len(allPiscinersInExam))
+
+
 def background():
+    global LOADING
+    LOADING = True
     global allUsers
     global allPisciners
     global allPiscinersInExam
-    allUsers = fetchAllUsers(oauth)
+    fetchAllUsers(oauth, allUsers)
     allPisciners = grabPiscinerFromUser(allUsers, MONTH, YEAR)
-    allPiscinersInExam = getPiscinerInExam(
-        oauth=oauth, examName=EXAM, allPisciner=allPisciners)
+    getPiscinerInExam(
+        oauth=oauth, examName=EXAM, allPisciner=allPisciners, piscinerInExam=allPiscinersInExam)
+    LOADING = False
 
 
 @app.route("/refresh", methods=["POST"])
