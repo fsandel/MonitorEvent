@@ -19,6 +19,7 @@ func getToken() (string, error) {
 	spaceClient := http.Client{
 		Timeout: time.Second * 2,
 	}
+
 	req, err := http.NewRequest(http.MethodPost, url, nil)
 	if err != nil {
 		return "", err
@@ -28,8 +29,8 @@ func getToken() (string, error) {
 	if getErr != nil {
 		return "", getErr
 	}
-	defer res.Body.Close()
 
+	defer res.Body.Close()
 	body, readErr := io.ReadAll(res.Body)
 	if readErr != nil {
 		return "", readErr
@@ -41,10 +42,43 @@ func getToken() (string, error) {
 	return bodyMap["access_token"], nil
 }
 
+func fetch(url string, token string, requestType string) (string, error) {
+	spaceClient := http.Client{
+		Timeout: time.Second * 2,
+	}
+
+	req, err := http.NewRequest(requestType, url, nil)
+	if err != nil {
+		return "", err
+	}
+	req.Header["Authorization"] = []string{
+		fmt.Sprintf("Bearer %s", token),
+	}
+
+	res, getErr := spaceClient.Do(req)
+	if getErr != nil {
+		return "", getErr
+	}
+
+	defer res.Body.Close()
+	body, readErr := io.ReadAll(res.Body)
+	if readErr != nil {
+		return "", readErr
+	}
+
+	return string(body), nil
+}
+
 func main() {
 	token, tokenErr := getToken()
 	if tokenErr != nil {
 		log.Fatal(tokenErr)
 	}
-	fmt.Println(token)
+
+	body, err := fetch("https://api.intra.42.fr/v2/users/fsandel", token, http.MethodGet)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(body)
 }
