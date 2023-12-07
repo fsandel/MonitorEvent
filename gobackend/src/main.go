@@ -55,9 +55,18 @@ func fetch(url string, token string, requestType string) (string, error) {
 		fmt.Sprintf("Bearer %s", token),
 	}
 
-	res, getErr := spaceClient.Do(req)
-	if getErr != nil {
-		return "", getErr
+	var res *http.Response
+	var resErr error
+	for {
+		res, resErr = spaceClient.Do(req)
+		if resErr != nil {
+			return "", resErr
+		}
+		if res.StatusCode == 429 {
+			time.Sleep(time.Millisecond * 300)
+		} else {
+			break
+		}
 	}
 
 	defer res.Body.Close()
@@ -69,16 +78,27 @@ func fetch(url string, token string, requestType string) (string, error) {
 	return string(body), nil
 }
 
+func test(token string) {
+	body, err := fetch("https://api.intra.42.fr/v2/me", token, http.MethodGet)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(body)
+}
+
 func main() {
 	token, tokenErr := getToken()
 	if tokenErr != nil {
 		log.Fatal(tokenErr)
 	}
 
-	body, err := fetch("https://api.intra.42.fr/v2/users/fsandel", token, http.MethodGet)
-	if err != nil {
-		log.Fatal(err)
-	}
+	test(token)
+	test(token)
+	test(token)
+	test(token)
+	test(token)
+	test(token)
+	test(token)
+	test(token)
 
-	fmt.Println(body)
 }
