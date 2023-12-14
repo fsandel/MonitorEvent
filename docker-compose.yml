@@ -8,13 +8,11 @@ services:
       - 3000:3000
     volumes:
       - .:/code
+
   backend:
-    container_name: flask
+    container_name: go-api
     build: ./backend/
     env_file: ./.env
-    environment:
-      - FLASK_APP=app.py
-      - FLASK_DEBUG=1
     networks:
       - client-side
       - server-side
@@ -22,6 +20,19 @@ services:
       - 4000:4000
     volumes:
       - .:/code
+
+  db:
+    image: postgres:15.4-alpine
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=testpwd
+      - POSTGRES_DB=monitor
+    networks:
+      - server-side
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
 
 networks:
   client-side: {}

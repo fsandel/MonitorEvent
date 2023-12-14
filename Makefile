@@ -25,6 +25,9 @@ down:
 clean:
 	docker-compose -f $(COMPOSE) down
 
+yeet:
+	-docker volume rm $(shell docker volume ls -q)
+
 #take down, remove images
 fclean: clean
 	-docker rm -f $(shell docker ps -aq)
